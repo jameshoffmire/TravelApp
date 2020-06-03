@@ -1,0 +1,65 @@
+<html ng-app="app">
+  <body>
+  <div class="bar bar-header bar-dark">
+    <ion-segment ng-model="segment" full="true"  assertive>
+      <ion-segment-button value="Sign-in">
+        Sign-in
+      </ion-segment-button>
+      <ion-segment-button value="Sign-up">
+        Sign-up
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <ion-content class="center background_login" ng-controller="loginCtrl">
+
+ <div ng-switch="segment">
+
+ <ion-list ng-switch-when="Sign-in" ng-controller="loginCtrl">  
+<form class="padding float-label" spellcheck="false">
+  <p class="padding"></p>  
+  <div class="control">
+    <input type="text" name="email" ng-model="email" placeholder="Email" required />
+    <label for="email">Email</label>
+  </div> 
+  
+  <div class="control">
+    <input type="password" name="password" ng-model="password" placeholder="Password" required />
+    <label for="password">Password</label>
+  </div><div class="control"></div></form>
+   <div class="custom">
+    <button class="button button-positive"
+            style="padding-left: 10%; padding-right: 10%;" value="Login" ng-click="login()">Login</button>
+	</div>
+  </ion-list>
+    
+  <ion-list ng-switch-when="Sign-up" ng-controller="loginCtrl">  
+<form class="padding float-label" spellcheck="false">
+  <p class="padding"></p>
+  <div class="control">
+    <input type="text" name="fname" ng-model="fname" placeholder="First Name" required />
+    <label for="fname">First Name</label>
+  </div>
+  
+  <div class="control"> 
+    <input type="text" name="lname" ng-model="lname" placeholder="Last Name" required />
+    <label for="lname">Last Name</label>
+  </div>
+  
+  <div class="control">
+    <input type="text" name="email" ng-model="email" placeholder="Email" required />
+    <label for="email">Email</label>
+  </div> 
+  
+  <div class="control">
+    <input type="password" name="password" ng-model="password" placeholder="Password" required />
+    <label for="password">Password</label>
+  </div><div class="control"></div></form>
+	<div class="custom">
+    <button class="button button-positive" style="font-size:16px;"value="Create User" ng-click="createUser()">Create User</button>
+	</div>
+  </ion-list>
+    </div>
+</ion-content>
+  </body>
+</html>

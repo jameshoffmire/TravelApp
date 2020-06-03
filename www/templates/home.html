@@ -1,0 +1,33 @@
+<ion-view view-title="Tourist">
+  <div class="bar bar-header bar-dark" style="height:5%;"  ng-click="signout()"> Signout, {{fname}}?
+  </div>
+
+  <ion-content class="center background" ng-controller="homeCtrl">
+
+  <div style="top:2%; left:5%; position: absolute; color: white">
+  <!--<i class="icon ion-chevron-left"> </i>-->
+  <i class="icon ion-android-arrow-back" style="font-size:150%" ng-click="backClicked()"></i>
+  </div>
+	<div>
+      <label id="search-label" class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" placeholder="Where To?" ng-model="search">
+      </label>
+      <!--Define the dropdown list items -->
+      <ion-scroll id="dropdown-box" style="height: 50vh; width: 89.6vw">
+        <ion-item class="my-item"
+                  ng-repeat="item in getPlaces()"
+                  item-height="getItemHeight(item)"
+                  id="{{ item.isLetter ? (item.letter + '_divider') : ''}}"
+                  ng-style="{'line-height': getItemHeight(item) + 'px'}"
+                  ng-class="{'item-divider': false}" ng-click="onSelect('{{item.id}}')">
+            <img ng-if="!item.isLetter" ng-src="{{item.image}}">
+          {{item.city + ', ' + item.state}}
+        </ion-item>
+		<ion-item  ng-if="getPlaces().length == 0" ng-click="onNotFound('NotFound')">
+          <h3><i>No existing tours found! Create one?</i></h3>
+        </ion-item>
+      </ion-scroll>
+    </div>
+  </ion-content>
+</ion-view>

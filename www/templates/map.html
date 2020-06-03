@@ -1,0 +1,14 @@
+<ion-view>
+  <ion-content>
+    <div style="top:2%; left:5%; position: absolute; color: black">
+      <!--<i class="icon ion-chevron-left"> </i>-->
+      <i id="map-back-button" class="icon ion-android-arrow-back" style="font-size:200%" ng-click="backClicked()"></i>
+    </div>
+    <!--<ion-spinner icon="android"></ion-spinner>-->
+    <input id="pac-input" class="controls" type="text" placeholder="Search">
+    <button id="create-tour-button" class="button button-small button-assertive" style=""
+            ng-click="tourSelectionDone()"> Create Tour
+    </button>
+    <div id="map" data-tap-disabled="true"></div>
+  </ion-content>
+</ion-view>

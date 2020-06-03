@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <link href="css/ionic.app.css" rel="stylesheet">
+  -->
+
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+  <!-- for cordova SQLite -->
+  <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+
+</head>
+<body ng-app="starter" ng-controller="mainCtrl" class="platform-ios platform-cordova platform-webview">
+<ion-pane>
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">GuestBook</h1>
+  </ion-header-bar>
+  <ion-content>
+    <!-- First and Last name top block -->
+    <div class="bottom">
+      <div style="float: left; width: 50%;">
+        <label class="item item-input">
+          <!-- <span class="input-label">First Name</span> -->
+          <input type="text" name="firstName" id="firstName-textarea"
+                 ng-model="$parent.firstName" placeholder="First Name">
+        </label>
+      </div>
+      <div style="float: left; width: 50%;">
+        <label class="item item-input">
+          <!-- <span class="input-label">Last Name</span> -->
+          <input type="text" name="lastName" id="lastName-textarea"
+                 ng-model="$parent.lastName" placeholder="Last Name">
+        </label>
+      </div>
+    </div>
+    <!---------- END ---------->
+    <div class="bottom">
+      <div style="float: left; width: 100%;">
+        <label class="item item-input">
+          <!-- <span class="input-label">Phone Number</span> -->
+          <input type="text" name="lastName" id="phoneNumber-textarea"
+                 ng-model="$parent.phoneNumber" placeholder="Phone Number">
+        </label>
+      </div>
+    </div>
+    <div class="bottom">
+      <div style="float: left; width: 100%;">
+        <label class="item item-input">
+          <!-- <span class="input-label">Phone Number</span> -->
+          <input type="text" name="email" id="email-textarea"
+                 ng-model="$parent.email" placeholder="Email">
+        </label>
+      </div>
+    </div>
+    <button class="button button-full" ng-click="onSubmit()">Submit</button>
+    <ul>
+      <!-- <li class="button button-full" ng-repeat="person in listOfPeople"><a href="#">First Name: {{person.firstName}}</a></li> -->
+      <li class="button button-full" ng-repeat="person in listOfPeople" ng-click="deletePerson(person)">
+        Name: {{person.firstName}} {{person.lastName}} <br>Phone: {{person.phoneNumber}} <br>Email: {{person.email}}
+      </li>
+    </ul>
+  </ion-content>
+</ion-pane>
+</body>
+</html>

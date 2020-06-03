@@ -1,0 +1,38 @@
+<ion-view>
+  <ion-content>
+    <div style="top:2%; left:5%; position: absolute; color: black">
+      <i id="map-back-button" class="icon ion-android-arrow-back"
+         style="font-size:200%; margin-top: 5%; margin-left: 5%;" ng-click="backClicked()"></i>
+    </div>
+
+    <div id="tour-map" data-tap-disabled="true"></div>
+
+    <div style="float: left; width: 100%;">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Title</span>
+        <input id="title-id" type="text" ng-model="title" placeholder="Enter title" required>
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Cost</span>
+        <input id="cost" type="number" ng-model="cost" placeholder="Cost" required>
+      </label>
+
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Time</span>
+        <input id="time" type="number" ng-model="time" placeholder="Time in mins" required>
+      </label>
+
+    </div>
+
+    <div class="padding container">
+      Rating and Reviews:
+      <rating ng-model="rating" max="5"></rating>
+      <textarea cols="50" rows="3" style="width:100%; border:solid 1px gray;" ng-model="review"
+                placeholder="Write your review here..." required> </textarea>
+      <button id="tour-finalize-button" class="button button-small button-assertive"
+              ng-click="finalizeTour(title, cost, time, rating, review)"> Submit
+      </button>
+    </div>
+  </ion-content>
+</ion-view>
